@@ -1,7 +1,6 @@
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { MeshWobbleMaterial, OrbitControls, Html } from '@react-three/drei'
-import * as THREE from 'three'
+import { MeshWobbleMaterial, OrbitControls } from '@react-three/drei'
 
 function FloatingMesh({ position, color = '#7fb8ff', radius = 1 }) {
   const ref = useRef()
