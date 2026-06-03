@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Card from '../components/Card'
 import Footer from '../components/Footer'
+import BackgroundCanvas from '../components/BackgroundCanvas'
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       </Head>
       <div className="page-bg">
         <Header />
+        <div className="canvas-wrap">
+          <BackgroundCanvas />
+        </div>
         <main className="container">
           <Hero />
           <section className="cards">
