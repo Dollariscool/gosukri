@@ -7,5 +7,5 @@ export default function BackgroundCanvas() {
       <span className="blob b3" />
       <span className="blob b4" />
     </div>
-  );
+  )
 }

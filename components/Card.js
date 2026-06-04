@@ -1,15 +1,24 @@
-import { motion } from "framer-motion";
+import Reveal from "./Reveal";
+import { useGlassPointer } from "./useGlassPointer";
 
-const cardMotion = {
-  whileHover: { y: -6, scale: 1.015 },
-  transition: { type: "spring", stiffness: 260, damping: 20 },
-};
-
-export default function Card({ title, body }) {
+export default function Card({ title, body, tag, media, delay = 0 }) {
+  const glass = useGlassPointer(7);
+  const mediaStyle = { background: media };
   return (
-    <motion.article className="card glass" {...cardMotion}>
-      <h3>{title}</h3>
-      <p>{body}</p>
-    </motion.article>
+    <Reveal className="card-reveal" delay={delay}>
+      <article
+        className="card glass card-tilt"
+        onMouseMove={glass.onMouseMove}
+        onMouseLeave={glass.onMouseLeave}
+      >
+        <span className="glass-light" />
+        <div className="card-media" style={mediaStyle}>
+          {tag ? <span className="card-tag">{tag}</span> : null}
+        </div>
+        <h3>{title}</h3>
+        <p>{body}</p>
+        <span className="card-arrow">Explore →</span>
+      </article>
+    </Reveal>
   );
 }

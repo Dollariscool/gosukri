@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 const headerMotion = {
   initial: { opacity: 0, y: -16 },
@@ -7,17 +7,22 @@ const headerMotion = {
 };
 
 export default function Header() {
+  const { scrollYProgress } = useScroll();
+  const barStyle = { scaleX: scrollYProgress };
   return (
-    <motion.header className="site-header glass" {...headerMotion}>
-      <div className="brand">
-        <span className="logo">Gosukri</span>
-        <span className="brand-note">Liquid interfaces</span>
-      </div>
-      <nav className="nav">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </motion.header>
+    <>
+      <motion.div className="scroll-progress" style={barStyle} />
+      <motion.header className="site-header glass" {...headerMotion}>
+        <div className="brand">
+          <span className="logo">Gosukri</span>
+          <span className="brand-note">Liquid interfaces</span>
+        </div>
+        <nav className="nav">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </motion.header>
+    </>
   );
 }
