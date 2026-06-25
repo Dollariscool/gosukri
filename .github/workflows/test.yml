@@ -1,0 +1,17 @@
+name: Test Project
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repo files
+        uses: actions/checkout@v6
+
+      - name: Say hello
+        run: echo "GitHub Actions is working!"
